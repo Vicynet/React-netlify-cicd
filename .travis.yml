@@ -14,8 +14,9 @@ before_deploy:
 
 deploy:
   provider: netlify
+  site: $NETLIFY_SITE_ID
   edge: true
   auth: $AUTH
-  script: netlify deploy --dir=dist --prod
+  # script: netlify deploy --dir=dist --prod
   on: 
     branch: main
