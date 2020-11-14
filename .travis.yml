@@ -13,7 +13,7 @@ before_deploy:
   - npm run build
 
 deploy:
-  provider: script
+  provider: netlify
   edge: true
   auth: $AUTH
   script: netlify deploy --dir=dist --prod
