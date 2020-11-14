@@ -13,10 +13,10 @@ before_deploy:
   - npm run build
 
 deploy:
-  provider: netlify
+  provider: script
   site: $NETLIFY_SITE_ID
   edge: true
   auth: $AUTH
-  prod: netlify deploy --dir=dist --prod
+  script: netlify deploy --dir=dist --prod
   on: 
     branch: main
