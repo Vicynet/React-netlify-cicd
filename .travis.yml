@@ -16,7 +16,7 @@ deploy:
   provider: script
   site: $NETLIFY_SITE_ID
   edge: true
-  auth: $AUTH
+  # auth: $AUTH
   script: netlify deploy --dir=dist --prod
   on: 
     branch: main
