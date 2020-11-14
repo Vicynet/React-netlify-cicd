@@ -5,18 +5,16 @@ node_js:
 
 cache: npm
 
-install: 
-  - npm install netlify-cli -g
-
 script:
-    - npm test
-    - npm run build
+  - npm test
+
+before_deploy: 
+  - npm install netlify-cli -g
+  - npm run build
 
 deploy:
   provider: script
   edge: true
-  skip-cleanup: true
   script: netlify deploy --dir=dist --prod
-  github-token: $NETLIFY_CICD
   on: 
     branch: main
