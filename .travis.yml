@@ -1,0 +1,22 @@
+language: node_js
+
+node_js:
+  - "12.16.1"
+
+cache: npm
+
+install: 
+  - npm install netlify-cli -g
+
+script:
+    - npm test
+    - npm run build
+
+deploy:
+  provider: script
+  edge: true
+  skip-cleanup: true
+  script: netlify deploy --dir=dist --prod
+  github-token: $NETLIFY_CICD
+  on: 
+    branch: main
